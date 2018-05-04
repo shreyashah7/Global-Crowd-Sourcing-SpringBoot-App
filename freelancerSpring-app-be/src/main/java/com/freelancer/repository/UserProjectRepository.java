@@ -15,8 +15,10 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface UserProjectRepository extends CrudRepository<UserProjects, Long> {
     
+    //Fetch Projects associated with user having many-to-one relationship
     List<UserProjects> findByUserId(Long userId);
     
+    //Fetch Users associated with project having many-to-one relationship
     List<UserProjects> findByProjectId(Long projectId);
     
 }
