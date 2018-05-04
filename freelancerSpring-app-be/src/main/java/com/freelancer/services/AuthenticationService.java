@@ -5,7 +5,6 @@
  */
 package com.freelancer.services;
 
-import com.freelancer.databeans.UserDatabean;
 import com.freelancer.entity.User;
 import com.freelancer.repository.UserRepository;
 import java.util.regex.Matcher;

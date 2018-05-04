@@ -1,7 +1,6 @@
 package com.freelancer;
 
 import com.freelancer.entity.Project;
-import com.freelancer.entity.User;
 import com.freelancer.repository.ProjectRepository;
 import java.util.Optional;
 import static org.junit.Assert.assertNotEquals;
