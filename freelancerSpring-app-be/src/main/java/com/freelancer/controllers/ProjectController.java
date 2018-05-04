@@ -67,7 +67,6 @@ public class ProjectController {
     @PostMapping(path = "/userprojects", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getLoggedInUserProjects(@RequestBody User userObj) {
         List<?> loggedInUserProjects = projectService.getLoggedInUserProjects(userObj);
-        System.out.println("loggedInUserProjects :" + loggedInUserProjects);
         if (!loggedInUserProjects.isEmpty()) {
             responseObject.setData(loggedInUserProjects);
             responseObject.setMeta("Project retrived successfully.");
@@ -96,7 +95,6 @@ public class ProjectController {
     @GetMapping(path = "/projects", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getOpenProjects() {
         List<Project> openProjects = projectService.getOpenProjects();
-        System.out.println("openProjects :"+openProjects);
         if (!openProjects.isEmpty()) {
             responseObject.setData(openProjects);
             responseObject.setMeta("Open Projects retrieved successfully.");

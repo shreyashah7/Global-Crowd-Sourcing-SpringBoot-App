@@ -44,7 +44,6 @@ public class UserTest {
         user.setRole(1);
 
         user = userRepository.save(user);
-        System.out.println("user :" + user);
         String userid = String.valueOf(user.getId());
         assertNotEquals("User Created", Long.parseLong(userid), 0);
     }

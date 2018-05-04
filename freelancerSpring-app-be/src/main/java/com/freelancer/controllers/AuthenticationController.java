@@ -26,7 +26,6 @@ public class AuthenticationController {
     
     @PostMapping(path = "/login", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> login(@RequestBody User userEntity, HttpSession session) {
-        System.out.println("inside login-------------" + userEntity.getEmail());
         User dbUserEntity = authenticationService.login(userEntity);
         if (dbUserEntity != null) {
             session.setAttribute("userId", dbUserEntity.getId());
@@ -69,7 +68,6 @@ public class AuthenticationController {
 
     @PostMapping(path = "/logout", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> logout(HttpSession session) {
-        System.out.println("SESSION ATTRIBUTE"+session.getAttribute("email"));
         session.invalidate();
         return new ResponseEntity(HttpStatus.OK);
     }

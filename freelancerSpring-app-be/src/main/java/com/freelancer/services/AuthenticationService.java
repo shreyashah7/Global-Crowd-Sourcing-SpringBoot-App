@@ -33,7 +33,6 @@ public class AuthenticationService {
 
     public User login(User userEntity) {
         User dbUserObj = userRepository.findByEmail(userEntity.getEmail());
-        System.out.println(userEntity.getPassword() + "   " + dbUserObj.getPassword());
         if (getEncoder().matches(userEntity.getPassword(), dbUserObj.getPassword())) {
             return dbUserObj;
         }
@@ -52,7 +51,6 @@ public class AuthenticationService {
     }
 
     public boolean checkPasswordPattern(String password) {
-        System.out.println("password :"+password);
         Pattern p = Pattern.compile("((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=?!~|()<>{}:;,\"'`\\[\\]\\\\\\/.\\-_*])([a-zA-Z0-9@#$%^&+=?!~|()<>{}:;,“’`\\[\\]\\\\\\/*.\\-_]){8,})");
         Matcher m = p.matcher(password);
         return m.find();
